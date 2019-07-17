@@ -5,7 +5,7 @@ class ApplicationController < Sinatra::Base
   end
   
   get'/' do 
-    @recipes = Recipe.All
+    @recipes = Recipe.all
     erb :index
   end
 
@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do 
-    @recipe = Recipe.create(params[:name],params[:ingredients])
+    @recipe = Recipe.create(name:params[:name],ingredients:params[:ingredients])
     redireict to "/recipes/#{@recipe.id}"
   end
 
